@@ -164,7 +164,7 @@ export default function ClientDashboard({ initialDrops, stats }) {
           </div>
           {/* FLOATING INSTAGRAM ANCHOR LINK LINK (MOBILE ORIENTED - BOTTOM LEFT PORT) */}
           <a
-            href="https://instagram.com/conscientia.in"
+            href="https://www.instagram.com/followforsponsoredrewards"
             target="_blank"
             rel="noopener noreferrer"
             className=" justify-center bg-[#2D3139] text-[1.5vh] hover:bg-black text-white font-mono font-black lg:text-sm  tracking-widest uppercase py-2.5 px-3 border-2 border-black flex items-center gap-2 shadow-[3px_3px_0px_0px_rgba(250,0,150,1)] active:translate-x-0.5 active:translate-y-0.5 transition-all select-none touch-manipulation"
