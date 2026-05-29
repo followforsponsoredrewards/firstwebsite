@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Supporter Rewards Archive',
-  description: 'Transparent Community Verification Platform',
+  title: 'FOLLOW FOR SPONSORED REWARDS',
+  description: 'JUST FOLLOW THE ACCOUNT ON INSTA TO STAY UPDATED',
 };
 
 export default function RootLayout({ children }) {
