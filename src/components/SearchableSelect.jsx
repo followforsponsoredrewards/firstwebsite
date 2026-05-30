@@ -36,14 +36,17 @@ export default function SearchableSelect({ options = [], selected, onChange, pla
     }
   }, [isOpen]);
 
-  const filteredOptions = options.filter(opt => 
-    opt.name.toLowerCase().includes(search.toLowerCase())
-  );
+  // Change line 39-41 to look like this:
+  const filteredOptions = options.filter(opt => {
+    // 🛡️ Guard rail: Ignore elements that are missing names or are unreadable
+    if (!opt || !opt.name) return false;
+    return opt.name.toLowerCase().includes(search.toLowerCase());
+  });
 
   return (
     <div ref={containerRef} className="relative w-full">
       {/* SELECTION TRIGGER BAR */}
-      <div 
+      <div
         onClick={() => setIsOpen(!isOpen)}
         className="w-full bg-[#EFF1F5] border-2 border-[#2D3139] p-2 text-[10px] font-black cursor-pointer flex justify-between items-center text-[#2D3139] hover:bg-white transition-colors select-none touch-manipulation shadow-[1px_1px_0px_0px_rgba(45,49,57,1)]"
       >
@@ -55,15 +58,14 @@ export default function SearchableSelect({ options = [], selected, onChange, pla
 
       {/* DESKTOP FLOATING SMART VIEWPORT DETECTOR DROPDOWN */}
       {isOpen && (
-        <div 
+        <div
           ref={dropdownRef}
-          className={`hidden sm:flex absolute left-0 right-0 bg-[#EFF1F5] border-2 border-black z-50 flex-col h-[172px] ${
-            dropdownPosition === 'up' 
-              ? 'bottom-full mb-1 shadow-[4px_-4px_0px_0px_rgba(0,0,0,1)]' 
+          className={`hidden sm:flex absolute left-0 right-0 bg-[#EFF1F5] border-2 border-black z-50 flex-col h-[172px] ${dropdownPosition === 'up'
+              ? 'bottom-full mb-1 shadow-[4px_-4px_0px_0px_rgba(0,0,0,1)]'
               : 'top-full mt-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
-          }`}
+            }`}
         >
-          <input 
+          <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -99,13 +101,13 @@ export default function SearchableSelect({ options = [], selected, onChange, pla
       {/* MOBILE FULL IMMERSIVE SHEET LAYOUT PANEL (Guarantees zero cutoffs on mobile viewports) */}
       {isOpen && (
         <div className="sm:hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex flex-col justify-end" onClick={() => setIsOpen(false)}>
-          <div 
+          <div
             className="bg-[#EFF1F5] border-t-4 border-black w-full max-h-[60vh] flex flex-col p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.3)]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b-2 border-black pb-2 mb-3 shrink-0">
               <span className="text-[9px] font-black text-[#2D3139] tracking-widest uppercase">// SELECT TARGET CONFIGURATION</span>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="bg-black text-white px-2 py-0.5 text-[8px] font-black uppercase"
               >
@@ -113,7 +115,7 @@ export default function SearchableSelect({ options = [], selected, onChange, pla
               </button>
             </div>
 
-            <input 
+            <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}

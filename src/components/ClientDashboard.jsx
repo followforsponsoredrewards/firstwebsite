@@ -37,10 +37,48 @@ export default function ClientDashboard({ initialDrops, stats }) {
         dropNumber: drop.drop_number
       }))
     );
+    // Add this right below: const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false);
+  const [isInitialSyncing, setIsInitialSyncing] = useState(true);
+
+  // Add this useEffect right below it to automatically turn off the blur when the drops load
+  useEffect(() => {
+    if (initialDrops) {
+      const timeout = setTimeout(() => setIsInitialSyncing(false), 800);
+      return () => clearTimeout(timeout);
+    }
+  }, [initialDrops]);
 
   return (
     <div className="h-screen bg-[#EFF1F5] text-[#3A4454] font-mono text-xs selection:bg-black/10 flex flex-col overflow-hidden relative">
-      
+      {isInitialSyncing && (
+        <div className="fixed inset-0 w-screen h-screen bg-[#EFF1F5]/60 backdrop-blur-md z-[9999] flex flex-col items-center justify-center font-mono pointer-events-auto select-none">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#DBDEE5_1px,transparent_1px),linear-gradient(to_bottom,#DBDEE5_1px,transparent_1px)] bg-[size:24px_24px] opacity-30 z-0 pointer-events-none" />
+
+          <div className="bg-[#E4E7EB] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(45,49,57,1)] relative w-[340px] text-center overflow-hidden">
+            {/* LASER RADAR GRID SCANNER */}
+            <div className="absolute inset-x-0 h-1 bg-[#059669] opacity-80 shadow-[0_0_12px_#059669] animate-[scan_2s_linear_infinite] left-0" />
+
+            <div className="absolute top-2 left-2 w-2 h-2 border-t-2 border-l-2 border-[#2D3139]" />
+            <div className="absolute top-2 right-2 w-2 h-2 border-t-2 border-r-2 border-[#2D3139]" />
+            <div className="absolute bottom-2 left-2 w-2 h-2 border-b-2 border-l-2 border-[#2D3139]" />
+            <div className="absolute bottom-2 right-2 w-2 h-2 border-b-2 border-r-2 border-[#2D3139]" />
+
+            <div className="flex justify-center items-center gap-1.5 mb-4 mt-2">
+              <div className="w-2 h-5 bg-amber-500 animate-[pulse_1s_infinite_100ms]" />
+              <div className="w-2 h-7 bg-[#2D3139] animate-[pulse_1s_infinite_300ms]" />
+              <div className="w-2 h-9 bg-amber-500 animate-[pulse_1s_infinite_500ms]" />
+              <div className="w-2 h-5 bg-[#2D3139] animate-[pulse_1s_infinite_700ms]" />
+            </div>
+
+            <div className="text-[10px] font-black text-[#2D3139] tracking-widest uppercase mb-1">
+              FETCHING DATA, PLEASE WAIT
+            </div>
+            <div className="text-[7px] text-[#626A7A] uppercase tracking-widest font-bold">
+              FOLLOW FOR SPONSORED REWARDS
+            </div>
+          </div>
+        </div>
+      )}
       {/* GROUND BLUEPRINT GRID MATRIX PATTERN */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#DBDEE5_1px,transparent_1px),linear-gradient(to_bottom,#DBDEE5_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40 z-0" />
 
@@ -49,14 +87,14 @@ export default function ClientDashboard({ initialDrops, stats }) {
         <div className="max-w-[1600px] mx-auto flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-4 bg-[#2D3139]" />
+              <div className={`w-2 h-4 bg-[#059669]`} />
               <h1 className="text-xs md:text-sm font-black tracking-widest text-[#2D3139] uppercase">
-                FOLLOW FOR SPONSORED REWARDS
+                  CONSCIENTIA SYSTEM DATA MATRIX CONTROL TERMINAL
               </h1>
+              <p className="text-[8px] md:text-[9px] text-[#626A7A] uppercase mt-0.5 tracking-widest font-bold">
+                  Direct Database Write Isolation Frame // Status: SECURE AUTHORIZED ACCESS UNLOCKED
+              </p>
             </div>
-            <p className="text-[8px] md:text-[9px] text-[#626A7A] uppercase mt-0.5 tracking-widest font-bold">
-              JUST FOLLOW TO STAY UPDATED..!
-            </p>
           </div>
 
           {/* DYNAMIC HIGH-CONTRAST RESPONSE SEARCH SYSTEM */}
