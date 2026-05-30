@@ -88,13 +88,15 @@ export default function ClientDashboard({ initialDrops, stats }) {
           <div>
             <div className="flex items-center gap-2">
               <div className={`w-2 h-4 bg-[#059669]`} />
-              <h1 className="text-xs md:text-sm font-black tracking-widest text-[#2D3139] uppercase">
-                  CONSCIENTIA SYSTEM DATA MATRIX CONTROL TERMINAL
-              </h1>
-              <p className="text-[8px] md:text-[9px] text-[#626A7A] uppercase mt-0.5 tracking-widest font-bold">
-                  Direct Database Write Isolation Frame // Status: SECURE AUTHORIZED ACCESS UNLOCKED
-              </p>
-            </div>
+              <div>
+                  <h1 className="text-xs md:text-sm font-black tracking-widest text-[#2D3139] uppercase">
+                      FOLLOW FOR SPONSORED REWARDS
+                  </h1>
+                  <p className="text-[8px] md:text-[9px] text-[#626A7A] uppercase mt-0.5 tracking-widest font-bold">
+                      JUST FOLLOW THE INSTA PAGE TO WIN AND STAY UPDATED
+                  </p>
+              </div>
+          </div>
           </div>
 
           {/* DYNAMIC HIGH-CONTRAST RESPONSE SEARCH SYSTEM */}

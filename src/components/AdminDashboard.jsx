@@ -263,10 +263,10 @@ export default function AdminDashboard({ initialDrops = [], sponsorsList = [] })
                         <div className={`w-2 h-4 ${(isSponsorCommitting || isDropInitializing || isWinnerProcessing) ? 'bg-amber-500 animate-spin' : 'bg-[#059669]'}`} />
                         <div>
                             <h1 className="text-xs md:text-sm font-black tracking-widest text-[#2D3139] uppercase">
-                                CONSCIENTIA SYSTEM DATA MATRIX CONTROL TERMINAL
+                                FOLLOW FOR SPONSORED REWARDS
                             </h1>
                             <p className="text-[8px] md:text-[9px] text-[#626A7A] uppercase mt-0.5 tracking-widest font-bold">
-                                Direct Database Write Isolation Frame // Status: SECURE AUTHORIZED ACCESS UNLOCKED
+                                JUST FOLLOW THE INSTA PAGE TO WIN AND STAY UPDATED
                             </p>
                         </div>
                     </div>
